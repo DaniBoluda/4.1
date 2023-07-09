@@ -1,0 +1,6 @@
+﻿  FUNCIONES.cpp
+C:\Users\danam\source\repos\4.0\QUINIENTOS\lib\rlutil.h(577,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  QUINIENTOS.cpp
+C:\Users\danam\source\repos\4.0\QUINIENTOS\lib\rlutil.h(577,19): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  QUINIENTOS.vcxproj -> C:\Users\danam\source\repos\4.0\QUINIENTOS\x64\Debug\QUINIENTOS.exe
