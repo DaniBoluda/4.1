@@ -7,7 +7,7 @@
 #include <string>
 
 using namespace std;
-
+//test
 
 void Rectangulo1P() {
 	// Dibujar pared izquierda
