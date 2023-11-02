@@ -1,16 +1,12 @@
 #include <iostream>
 #include "lib/rlutil.h"
 #include "FUNCIONES.h"
+#include "lib/dibujar.h"
+#include "lib/dados.h"
 
 using namespace std;
 
-
-
-
 int main() {
-
-
-
     int opcion = 1, y = -2;
     //1P
     string Nombre1P;

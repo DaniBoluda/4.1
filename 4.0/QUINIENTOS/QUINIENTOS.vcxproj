@@ -131,10 +131,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="dados.cpp" />
+    <ClCompile Include="dibujar.cpp" />
     <ClCompile Include="FUNCIONES.cpp" />
-    <ClCompile Include="QUINIENTOS.cpp" />
+    <ClCompile Include="menuPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="lib\dados.h" />
+    <ClInclude Include="lib\dibujar.h" />
     <ClInclude Include="lib\FUNCIONES.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
