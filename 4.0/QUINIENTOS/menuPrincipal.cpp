@@ -7,50 +7,46 @@
 using namespace std;
 
 int main() {
-    int opcion = 1, y = -2;
-    //1P
-    string Nombre1P;
-    int MaxPuntajeP1 = 0;
-    int LanzamientosP1 = 0;
+    bool salirDelJuego = false;
+    int opcion = 1;
 
     do {
         Titulo();
         Esquinas();
 
-
-        rlutil::setColor(y == -2 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 1 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 13);
         cout << "MODO UN JUGADOR" << endl;
 
         rlutil::setColor(rlutil::COLOR::WHITE);
         rlutil::locate(46, 14);
 
-        rlutil::setColor(y == 0 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 2 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 15);
         cout << "MODO DOS JUGADORES" << endl;
 
         rlutil::setColor(rlutil::COLOR::WHITE);
         rlutil::locate(46, 16);
 
-        rlutil::setColor(y == 2 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 3 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 17);
         cout << "PUNTUACION MAS ALTA" << endl;
 
         rlutil::setColor(rlutil::COLOR::WHITE);
         rlutil::locate(46, 18);
 
-        rlutil::setColor(y == 4 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 4 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 19);
         cout << "COMO SE JUEGA?" << endl;
 
-        rlutil::setColor(y == 6 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 5 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 21);
         cout << "COMBINACIONES GANADORAS" << endl;
 
         rlutil::setColor(rlutil::COLOR::WHITE);
         rlutil::locate(46, 23);
 
-        rlutil::setColor(y == 8 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+        rlutil::setColor(opcion == 6 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
         rlutil::locate(48, 23);
         cout << "SALIR DEL JUEGO" << endl;
 
@@ -62,73 +58,59 @@ int main() {
         rlutil::locate(110, 30);
         cout << "Dana Claros";
 
-        int Key = rlutil::getkey();
+        int teclaPresionada = rlutil::getkey();
 
-        switch (Key) {
-
-        case rlutil::KEY_UP:
+        switch (teclaPresionada) {
             // Navegar hacia arriba
-            y -= 2;
-            if (y < -2) {
-                y = -2;
-            }
-            break;
-        case rlutil::KEY_DOWN:
+            case rlutil::KEY_UP:
+                // Si ya esta en la posicion 1 (Un jugador) no debe hacer nada.
+                if (opcion != 1) {
+                    opcion--;
+                }
+                break;
             // Navegar hacia abajo
-            y += 2;
-            if (y > 8) {
-                y = 8;
-            }
-            break;
-        case rlutil::KEY_ENTER:
+            case rlutil::KEY_DOWN:
+                // Si ya esta en la posicion 6 (Salir del juego) no debe hacer nada.
+                if (opcion != 6) {
+                    opcion++;
+                }
+                break;
             // Presionar Enter
-
-
-            switch (y) {
-
-            case -2:
-                // Modo un jugador
-            {
-                ModoUnJugador();
-
-
-            }
-            break;
-
-
-            case 0:
-                // MODO DOS JUGADORES
-                ModoDosJugadores();
+            case rlutil::KEY_ENTER:
+                switch (opcion) {
+                    // Modo un jugador
+                    case 1: //actualizar en orden como escalera
+                    {
+                        ModoUnJugador();
+                    }
+                    break;
+                    // MODO DOS JUGADORES
+                    case 2:
+                        ModoDosJugadores();
+                        break;
+                    // MOSTRAR CALIFICACION MAXIMA
+                    case 3:
+                        rlutil::anykey();
+                        break;
+                    // AYUDA
+                    case 4:
+                        rlutil::anykey();
+                        break;
+                    // COMBINACIONES GANADORAS
+                    case 5:
+                        rlutil::anykey();
+                        break;
+                    // SALIR DEL JUEGO
+                    case 6:
+                        salirDelJuego = true;
+                        break;
+                    }
+                    break;
+            default:
                 break;
-            case 2:
-                // MOSTRAR CALIFICACION MAXIMA
-
-                rlutil::anykey();
-                break;
-            case 4:
-                // AYUDA
-
-
-                rlutil::anykey();
-                break;
-            case 6:
-                // COMBINACIONES GANADORAS
-
-                rlutil::anykey();
-
-                break;
-            case 8:
-                // SALIR DEL JUEGO
-                opcion = 0; // Terminar el programa
-                break;
-            }
-            break;
-        default:
-            break;
         }
 
-    } while (opcion != 0);
-
-
+    } while (!salirDelJuego);
+        
     return 0;
 }
