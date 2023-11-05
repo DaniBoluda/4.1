@@ -7,6 +7,15 @@
 using namespace std;
 
 int main() {
+	//int dados[6] = { 2, 3, 1, 1, 5, 6 };
+	//bool combinacion = esEscalera(dados);
+	//int puntaje = puntajeTrio(dados);
+	//cout << "PUNTAJE" << endl;
+	//cout << puntaje << endl;
+
+	//return 0;
+
+	//parte del juego:
 	bool salirDelJuego = false;
 	int opcion = 1;
 

@@ -28,7 +28,7 @@ void ModoUnJugador() {
 	string Nombre1P;
 	int PuntajeTotalP1 = 0;
 	int MaxPuntajeP1 = 0;
-	int LanzamientosP1 = 0;
+	int lanzamientosP1 = 0;
 	int NumRondaP1 = 0;
 	int MAX_RONDAS = 3;
 
@@ -67,11 +67,11 @@ void ModoUnJugador() {
 
 		while (MaxPuntajeP1 <= 500 && NumRondaP1 < MAX_RONDAS) {
 			NumRondaP1++;
-			LanzamientosP1 = 0;
+			lanzamientosP1 = 0;
 			MaxPuntajeP1 = 0;
 
-			while (LanzamientosP1 < 3) {
-				LanzamientosP1++;
+			while (lanzamientosP1 < 3) {
+				lanzamientosP1++;
 
 				rlutil::cls();
 				Rectangulo1P();
@@ -88,30 +88,29 @@ void ModoUnJugador() {
 
 				// Aca verificar los dados y las jugadas
 				int puntaje = 0;
-				if (Sexteto6MM(dados)) {
+				if (esSexteto(dados)) {
 					puntaje = 0;
 					rlutil::locate(50, 25);
 					cout << "Combinacion Sexteto! Perdiste todo! ";
 				}
-				else if (Escalera(dados)) {
+				else if (esEscalera(dados)) {
 					puntaje = 500;
 					rlutil::locate(50, 25);
 					cout << "¡ESCALERA! ¡GANASTE LA PARTIDA!";
 				}
-				else if (existeDadosIguales(dados))
+				else if (esSextetoX(dados))
 				{
-					puntaje = Sexteto(dados);
+					puntaje = dados[0] * 50;
 					rlutil::locate(50, 25);
 					cout << "Combinacion Sexteto X";
 				}
-				else if (existeTresNumerosIgualesOMayor(dados)) {
-					puntaje = MayorTrio(dados);
-					puntaje = MayorTrio(dados);
+				else if (esTrio(dados)) {
+					puntaje = puntajeTrio(dados);
 					rlutil::locate(50, 25);
 					cout << "Combinacion TRIO! ";
 				}
-				else if (existeDosNumerosIguales(dados)) {
-					puntaje = SumaDeDados(dados);
+				else if (esSumaDeDados(dados)) {
+					puntaje = puntajeSumaDeDados(dados);
 					rlutil::locate(50, 25);
 					cout << "Suma de dados! ";
 				}
@@ -136,7 +135,7 @@ void ModoUnJugador() {
 				rlutil::locate(90, 3);
 				cout << "PUNTUAJE TOTAL: " << PuntajeTotalP1;
 				rlutil::locate(47, 6);
-				cout << "LANZAMIENTO: " << LanzamientosP1;
+				cout << "LANZAMIENTO: " << lanzamientosP1;
 				rlutil::locate(86, 6);
 				cout << "MAXIMO PUNTAJE DE LA RONDA:";
 				rlutil::locate(95, 7);
@@ -160,7 +159,7 @@ void ModoUnJugador() {
 			rlutil::locate(90, 3);
 			cout << "PUNTUAJE TOTAL: " << PuntajeTotalP1;
 			rlutil::locate(47, 6);
-			cout << "LANZAMIENTO: " << LanzamientosP1;
+			cout << "LANZAMIENTO: " << lanzamientosP1;
 			rlutil::locate(86, 6);
 			cout << "MAXIMO PUNTAJE DE LA RONDA:";
 			rlutil::locate(95, 7);
