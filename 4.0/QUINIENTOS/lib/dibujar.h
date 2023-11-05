@@ -4,13 +4,11 @@
 
 int SeisNumeros(int min, int max);
 
-int dibujarDado(int num);
-
 int numAleatorio1_6();
 
 std::vector<int> LanzarDados();
 
-void Dado(int posx, int posy, int num, int tam);
+void dibujarDado(int posx, int posy, int num, int tam);
 
 void Cuadrado(int posx, int posy, int tam);
 

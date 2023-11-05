@@ -50,7 +50,7 @@ void Cuadrado(int posx, int posy, int tam) {
 
 
 //Genera Graficamente 6 Dados 
-void Dado(int posx, int posy, int num, int tam) {
+void dibujarDado(int posx, int posy, int num, int tam) {
 	Cuadrado(posx, posy, tam);
 
 	switch (num) {
@@ -141,7 +141,4 @@ int numAleatorio1_6() {
 	std::uniform_int_distribution<> dis(1, 6);
 
 	return dis(gen);
-}
-int dibujarDado(int num) {
-	return num;
 }

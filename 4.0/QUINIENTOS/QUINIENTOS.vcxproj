@@ -133,13 +133,13 @@
   <ItemGroup>
     <ClCompile Include="dados.cpp" />
     <ClCompile Include="dibujar.cpp" />
-    <ClCompile Include="FUNCIONES.cpp" />
+    <ClCompile Include="unJugador.cpp" />
     <ClCompile Include="menuPrincipal.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lib\dados.h" />
     <ClInclude Include="lib\dibujar.h" />
-    <ClInclude Include="lib\FUNCIONES.h" />
+    <ClInclude Include="lib\unJugador.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

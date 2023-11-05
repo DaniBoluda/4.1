@@ -1,5 +1,5 @@
-#ifndef FUNCIONES_H
-#define FUNCIONES_H
+#ifndef unJugador_h
+#define unJugador_h
 #include <vector>
 
 void Titulo();

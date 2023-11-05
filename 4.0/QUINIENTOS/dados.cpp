@@ -12,33 +12,45 @@ using namespace std;
 
 
 //Escalera
-bool Escalera(const std::vector<int>& dados) {
-	std::vector<int> Ordenados = dados;
-	std::sort(Ordenados.begin(), Ordenados.end());
-
-	if (Ordenados == std::vector<int>{1, 2, 3, 4, 5, 6}) {
-		return true;
+bool Escalera(int dados[6]) {
+	// ordena con metodo burbuja
+	for (int i = 0; i < 6 - 1; ++i) {
+		for (int j = 0; j < 6 - i - 1; ++j) {
+			if (dados[j] > dados[j + 1]) {
+				// Intercambiar los elementos si están en el orden incorrecto
+				int temp = dados[j];
+				dados[j] = dados[j + 1];
+				dados[j + 1] = temp;
+			}
+		}
 	}
-	return false;
+
+	if (dados[0] == 1 &&
+		dados[1] == 2 &&
+		dados[2] == 3 &&
+		dados[3] == 4 &&
+		dados[4] == 5 &&
+		dados[5] == 6)
+		return true;
+	else
+		return false;
 }
 
 //Suma de Dados
-int SumaDeDados(const std::vector<int>& resultados) {
+int SumaDeDados(int dados[6]) {
 	int suma = 0;
-	std::map<int, int> contador;
 
-	for (int valor : resultados) {
-		suma += valor;
-		contador[valor]++;
+	for (int i = 0; i < 6; i++) {
+		suma += dados[i];
 	}
 
 	return suma;
 }
 
 //trio
-int MayorTrio(const std::vector<int>& resultados) {
-	int valor = resultados[0];
-	// buscar el numero q coincide
+int MayorTrio(int dados[6]) {
+	int valor = dados[0];
+	// TODO: buscar el numero q coincide
 
 	return valor * 10;
 } //verificar este metodo 
@@ -93,19 +105,18 @@ return puntaje;
 }*/
 //otra version
 
-//Sexteto X
-int Sexteto(const std::vector<int>& resultados) {
-	int Dado = resultados[0];
+//Sexteto de dados, 6 dados iguales EXCEPTO EL SEIS
+int Sexteto(int dados[6]) {
+	int Dado = dados[0];
 
 
 	bool sexteto = true;
 	for (int i = 1; i < 6; i++) {
-		if (resultados[i] != Dado || Dado == 6) {
+		if (dados[i] != Dado || Dado == 6) {
 			sexteto = false;
 			break;
 		}
 	}
-
 
 	if (sexteto) {
 		return Dado * 50;
@@ -115,17 +126,18 @@ int Sexteto(const std::vector<int>& resultados) {
 	}
 }
 
-//Seis 6
-bool Sexteto6MM(const std::vector<int>& resultados) {
-	for (int valor : resultados) {
-		if (valor != 6) {
-			return false;
+// se comprueba que los dados recibidos sean igual 6 (sexteto) por lo que se devuelve true caso contrario false
+bool Sexteto6MM(int dados[6]) {
+	for (int i = 0; i < 6; i++) {
+		if (dados[i] != 6) {
+			return false; //no hay sexteto
 		}
 	}
-	return true;
+
+	return true; //es verdadero
 }
 
-bool existeDadosIguales(const std::vector<int>& dados)
+bool existeDadosIguales(int dados[6])
 {
 	int valor = dados[0];
 	// hacer un for y comparar con cada elemento == valor si es verdad true
@@ -133,11 +145,11 @@ bool existeDadosIguales(const std::vector<int>& dados)
 	return false;
 }
 
-int contarOcurrencias(const std::vector<int>& numeros, int numeroBuscado) {
+int contarOcurrencias(int dados[6], int numeroBuscado) {
 	int contador = 0;
 
-	for (int i = 0; i < numeros.size(); ++i) {
-		if (numeros[i] == numeroBuscado) {
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] == numeroBuscado) {
 			contador++;
 		}
 	}
@@ -145,9 +157,9 @@ int contarOcurrencias(const std::vector<int>& numeros, int numeroBuscado) {
 	return contador;
 }
 
-bool existeTresNumerosIgualesOMayor(const std::vector<int>& dados)
+bool existeTresNumerosIgualesOMayor(int dados[6])
 {
-	for (int i = 0; i < dados.size(); ++i) {
+	for (int i = 0; i < 6; ++i) {
 		int cantidad = contarOcurrencias(dados, dados[i]); // se le pasa el vector y cada elemento del vector dentro del for
 		if (cantidad > 2 && cantidad < 6) // cantidad sea 3, 4 o 5
 		{
@@ -158,9 +170,9 @@ bool existeTresNumerosIgualesOMayor(const std::vector<int>& dados)
 	return false;  // No se encontró ninguna ocurrencia de igualdad
 }
 
-bool existeDosNumerosIguales(const std::vector<int>& dados)
+bool existeDosNumerosIguales(int dados[6])
 {
-	for (int i = 0; i < dados.size(); ++i) {
+	for (int i = 0; i < 6; ++i) {
 		int cantidad = contarOcurrencias(dados, dados[i]); // se le pasa el vector y cada elemento del vector dentro del for
 		if (cantidad == 2)
 		{

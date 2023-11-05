@@ -1,4 +1,4 @@
-﻿#include "lib/FUNCIONES.h"
+﻿#include "lib/unJugador.h"
 #include "lib/dibujar.h"
 #include "lib/dados.h"
 #include <random>
@@ -9,7 +9,6 @@
 #include <string>
 
 using namespace std;
-//test
 
 void Rectangulo1P() {
 	// Dibujar pared izquierda
@@ -25,18 +24,13 @@ void Rectangulo1P() {
 	DibujarLineas(1, 9, 120, 9, (char)205);
 }
 
-
-
-
-							 //Menu 1P
-
 void ModoUnJugador() {
 	string Nombre1P;
 	int PuntajeTotalP1 = 0;
 	int MaxPuntajeP1 = 0;
 	int LanzamientosP1 = 0;
 	int NumRondaP1 = 0;
-	int MAX_RONDAS = 0;
+	int MAX_RONDAS = 3;
 
 	bool volverAlMenu = false;
 
@@ -71,10 +65,6 @@ void ModoUnJugador() {
 		// rlutil::locate(58, 13);  
 		 //cin >> MAX_RONDAS;  // innecesario
 
-		if (MAX_RONDAS == 0) {
-			MAX_RONDAS = 3;
-		}
-
 		while (MaxPuntajeP1 <= 500 && NumRondaP1 < MAX_RONDAS) {
 			NumRondaP1++;
 			LanzamientosP1 = 0;
@@ -83,51 +73,45 @@ void ModoUnJugador() {
 			while (LanzamientosP1 < 3) {
 				LanzamientosP1++;
 
-				// Tirar los dados y guardar en resultados
-				//std::vector<int> resultados;
-				//for (int i = 0; i < 6; ++i) {
-				//	int resultado = numAleatorio1_6();
-				//	resultados.push_back(resultado);
-				//}
-
 				rlutil::cls();
 				Rectangulo1P();
 				Esquinas();
 				rlutil::locate(50, 3);
 
-				std::vector<int> resultados;
+				// se crea un vector que representa el numero aleatorio asignado a cada dado (6 dados)
+				int dados[6];
 				for (int i = 0; i < 6; ++i) {
-					int resultado = numAleatorio1_6();
-					resultados.push_back(resultado);
-					Dado(1 + (i * 20), 11, resultado, 19);
+					int numeroAleatorio = numAleatorio1_6();
+					dados[i] = numeroAleatorio;
+					dibujarDado(1 + (i * 20), 11, numeroAleatorio, 19);
 				}
 
 				// Aca verificar los dados y las jugadas
 				int puntaje = 0;
-				if (Sexteto6MM(resultados)) {
+				if (Sexteto6MM(dados)) {
 					puntaje = 0;
 					rlutil::locate(50, 25);
 					cout << "Combinacion Sexteto! Perdiste todo! ";
 				}
-				else if (Escalera(resultados)) {
+				else if (Escalera(dados)) {
 					puntaje = 500;
 					rlutil::locate(50, 25);
 					cout << "¡ESCALERA! ¡GANASTE LA PARTIDA!";
 				}
-				else if (existeDadosIguales(resultados))
+				else if (existeDadosIguales(dados))
 				{
-					puntaje = Sexteto(resultados);
+					puntaje = Sexteto(dados);
 					rlutil::locate(50, 25);
 					cout << "Combinacion Sexteto X";
 				}
-				else if (existeTresNumerosIgualesOMayor(resultados)) {
-					puntaje = MayorTrio(resultados);
-					puntaje = MayorTrio(resultados);
+				else if (existeTresNumerosIgualesOMayor(dados)) {
+					puntaje = MayorTrio(dados);
+					puntaje = MayorTrio(dados);
 					rlutil::locate(50, 25);
 					cout << "Combinacion TRIO! ";
 				}
-				else if (existeDosNumerosIguales(resultados)) {
-					puntaje = SumaDeDados(resultados);
+				else if (existeDosNumerosIguales(dados)) {
+					puntaje = SumaDeDados(dados);
 					rlutil::locate(50, 25);
 					cout << "Suma de dados! ";
 				}
@@ -185,13 +169,13 @@ void ModoUnJugador() {
 			cout << "CUANDO SALGA ESTE MENSAJE ACA DEBERIA DE ESTAR EL RESUMEN DE LA RONDA ";
 			rlutil::anykey();
 		}
-
+		return;
 
 	}
 }
 
 //Modo Dos Jugadores
-
+//pasarlo a otra funcion de dos jugadores
 void ModoDosJugadores() {
 	//
 }

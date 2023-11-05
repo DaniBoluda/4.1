@@ -1,22 +1,25 @@
 #ifndef dados_h
 #define dados_h
-#include <vector>
 
 //Combinaciones Ganadoras
-bool Escalera(const std::vector<int>& dados);
-bool existeDadosIguales(const std::vector<int>& dados);
-bool existeTresNumerosIgualesOMayor(const std::vector<int>& dados);
-bool existeDosNumerosIguales(const std::vector<int>& dados);
-bool Sexteto6MM(const std::vector<int>& resultados);
+bool Escalera(int dados[6]);
+
+bool existeDadosIguales(int dados[6]);
+
+bool existeTresNumerosIgualesOMayor(int dados[6]);
+
+bool existeDosNumerosIguales(int dados[6]);
+
+bool Sexteto6MM(int dados[6]);
 
 
-int SumaDeDados(const std::vector<int>& resultados);
+int SumaDeDados(int dados[6]);
 
-int MayorTrio(const std::vector<int>& resultados);
+int MayorTrio(int dados[6]);
 
-int Sexteto(const std::vector<int>& resultados);
+int Sexteto(int dados[6]);
 
-int contarOcurrencias(const std::vector<int>& numeros, int numeroBuscado);
+int contarOcurrencias(int dados[6]);
 
 
 #endif

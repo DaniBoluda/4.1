@@ -1,6 +1,6 @@
 #include <iostream>
 #include "lib/rlutil.h"
-#include "FUNCIONES.h"
+#include "lib/unJugador.h"
 #include "lib/dibujar.h"
 #include "lib/dados.h"
 
