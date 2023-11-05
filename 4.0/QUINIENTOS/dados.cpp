@@ -59,39 +59,54 @@ bool esSexteto(int dados[6]) {
 
 bool esSextetoX(int dados[6])
 {
-	int valor = dados[0];
 	// hacer un for y comparar con cada elemento == valor si es verdad true
+	bool esTodoUno = true;
 	for (int i = 0; i < 6; ++i) {
-		if (dados[i] == 1) {
-			return true;
+		if (dados[i] != 1) {
+			esTodoUno = false;
 		}
 	}
-
-	for (int i = 0; i < 6; ++i) {
-		if (dados[i] == 2) {
-			return true;
-		}
+	if (esTodoUno) {
+		return true;
 	}
 
+	bool esTodoDos = true;
 	for (int i = 0; i < 6; ++i) {
-		if (dados[i] == 3) {
-			return true;
+		if (dados[i] != 2) {
+			esTodoDos = false;
 		}
 	}
-
-	for (int i = 0; i < 6; ++i) {
-		if (dados[i] == 4) {
-			return true;
-		}
+	if (esTodoDos) {
+		return true;
 	}
 
-	for (int i = 0; i < 6; ++i) {
-		if (dados[i] == 5) {
-			return true;
-		}
+	bool esTodo3 = esSextetoX(dados, 3);
+	if (esTodo3) {
+		return true;
+	}
+
+	bool esTodo4 = esSextetoX(dados, 4);
+	if (esTodo4) {
+		return true;
+	}
+
+	bool esTodo5 = esSextetoX(dados, 5);
+	if (esTodo5) {
+		return true;
 	}
 
 	return false;
+}
+
+bool esSextetoX(int dados[6], int numeroAComprobar) {
+	bool esTodoX = true;
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] != numeroAComprobar) {
+			esTodoX = false;
+		}
+	}
+
+	return esTodoX;
 }
 
 bool esTrio(int dados[6])

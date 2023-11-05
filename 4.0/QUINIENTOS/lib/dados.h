@@ -6,6 +6,8 @@ bool esEscalera(int dados[6]);
 
 bool esSextetoX(int dados[6]);
 
+bool esSextetoX(int dados[6], int numeroComprobar);
+
 bool esTrio(int dados[6]);
 
 bool esSumaDeDados(int dados[6]);

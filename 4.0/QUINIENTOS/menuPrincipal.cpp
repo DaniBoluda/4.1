@@ -7,8 +7,8 @@
 using namespace std;
 
 int main() {
-	//int dados[6] = { 2, 3, 1, 1, 5, 6 };
-	//bool combinacion = esEscalera(dados);
+	//int dados[6] = { 1, 1, 2, 1, 1, 1 };
+	//bool combinacion = esSextetoX(dados);
 	//int puntaje = puntajeTrio(dados);
 	//cout << "PUNTAJE" << endl;
 	//cout << puntaje << endl;

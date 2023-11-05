@@ -30,7 +30,6 @@ void ModoUnJugador() {
 	int MaxPuntajeP1 = 0;
 	int lanzamientosP1 = 0;
 	int NumRondaP1 = 0;
-	int MAX_RONDAS = 3;
 
 	bool volverAlMenu = false;
 
@@ -65,7 +64,7 @@ void ModoUnJugador() {
 		// rlutil::locate(58, 13);  
 		 //cin >> MAX_RONDAS;  // innecesario
 
-		while (MaxPuntajeP1 <= 500 && NumRondaP1 < MAX_RONDAS) {
+		while (MaxPuntajeP1 <= 500) {
 			NumRondaP1++;
 			lanzamientosP1 = 0;
 			MaxPuntajeP1 = 0;
