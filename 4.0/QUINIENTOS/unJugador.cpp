@@ -124,7 +124,9 @@ void ModoUnJugador() {
 
 				// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
 				if (puntaje == 500 || puntaje == 0) {
-					break;
+					cout << "Presionar Enter para volver al menu principal";
+					rlutil::anykey();
+					break; // el break sale del while
 				}
 
 				rlutil::locate(50, 3);
