@@ -23,47 +23,45 @@ int main() {
 		Titulo();
 		Esquinas();
 
-		rlutil::setColor(opcion == 1 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 1 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 13);
 		cout << "MODO UN JUGADOR" << endl;
 
 		rlutil::setColor(rlutil::COLOR::WHITE);
 		rlutil::locate(46, 14);
 
-		rlutil::setColor(opcion == 2 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 2 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 15);
 		cout << "MODO DOS JUGADORES" << endl;
 
 		rlutil::setColor(rlutil::COLOR::WHITE);
 		rlutil::locate(46, 16);
 
-		rlutil::setColor(opcion == 3 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 3 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 17);
 		cout << "PUNTUACION MAS ALTA" << endl;
 
 		rlutil::setColor(rlutil::COLOR::WHITE);
 		rlutil::locate(46, 18);
 
-		rlutil::setColor(opcion == 4 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 4 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 19);
 		cout << "COMO SE JUEGA?" << endl;
+		//llamar funcionncomo se juega
 
-		rlutil::setColor(opcion == 5 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 5 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 21);
 		cout << "COMBINACIONES GANADORAS" << endl;
+		//funcin combinaciones
 
 		rlutil::setColor(rlutil::COLOR::WHITE);
 		rlutil::locate(46, 23);
 
-		rlutil::setColor(opcion == 6 ? rlutil::COLOR::GREEN : rlutil::COLOR::WHITE);
+		rlutil::setColor(opcion == 6 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 23);
 		cout << "SALIR DEL JUEGO" << endl;
 
-		rlutil::setColor(rlutil::COLOR::LIGHTRED);
-		rlutil::locate(1, 30);
-		cout << "Agustin Bernal";
-
-		rlutil::setColor(rlutil::COLOR::LIGHTRED);
+		rlutil::setColor(rlutil::COLOR::DARKGREY);
 		rlutil::locate(110, 30);
 		cout << "Dana Claros";
 
