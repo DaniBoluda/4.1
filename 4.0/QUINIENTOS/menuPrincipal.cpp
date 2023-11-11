@@ -20,8 +20,8 @@ int main() {
 	int opcion = 1;
 
 	do {
-		Titulo();
-		Esquinas();
+		titulo();
+		esquinas();
 
 		rlutil::setColor(opcion == 1 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 13);
@@ -46,13 +46,11 @@ int main() {
 
 		rlutil::setColor(opcion == 4 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 19);
-		cout << "COMO SE JUEGA?" << endl;
-		//llamar funcionncomo se juega
+		cout << "REGLAS DEL JUEGO" << endl;
 
 		rlutil::setColor(opcion == 5 ? rlutil::COLOR::LIGHTMAGENTA : rlutil::COLOR::WHITE);
 		rlutil::locate(48, 21);
 		cout << "COMBINACIONES GANADORAS" << endl;
-		//funcin combinaciones
 
 		rlutil::setColor(rlutil::COLOR::WHITE);
 		rlutil::locate(46, 23);
@@ -68,44 +66,38 @@ int main() {
 		int teclaPresionada = rlutil::getkey();
 
 		switch (teclaPresionada) {
-			// Navegar hacia abajo
-		case rlutil::KEY_DOWN:
-			// Si ya esta en la posicion 6 (Salir del juego) no debe hacer nada.
-			if (opcion != 6) {
+		case rlutil::KEY_DOWN: // Navegar hacia abajo
+			if (opcion != 6) { // Si ya esta en la posicion 6 (Salir del juego) no debe hacer nada.
 				opcion++;
 			}
 			break;
-			// Navegar hacia arriba
-		case rlutil::KEY_UP:
-			// Si ya esta en la posicion 1 (Un jugador) no debe hacer nada.
-			if (opcion != 1) {
+		case rlutil::KEY_UP: // Navegar hacia arriba
+			if (opcion != 1) { // Si ya esta en la posicion 1 (Un jugador) no debe hacer nada.
 				opcion--;
 			}
 			break;
 			// Presionar Enter
 		case rlutil::KEY_ENTER:
 			switch (opcion) {
-				// Modo un jugador
-			case 1: //actualizar en orden como escalera
-				ModoUnJugador();
+			case 1: 
+				modoUnJugador();
 				break;
-				// MODO DOS JUGADORES
 			case 2:
-				ModoDosJugadores();
+				modoDosJugadores();
 				break;
-				// MOSTRAR CALIFICACION MAXIMA
+				// MOSTRAR CALIFICACION MAXIMA de los dos jugadores 
 			case 3:
 				rlutil::anykey();
+
 				break;
-				// AYUDA
 			case 4:
+				comoSeJuega();
 				rlutil::anykey();
 				break;
-				// COMBINACIONES GANADORAS
 			case 5:
+				combinacionesGanadoras();
 				rlutil::anykey();
 				break;
-				// SALIR DEL JUEGO
 			case 6:
 				salirDelJuego = true;
 				break;

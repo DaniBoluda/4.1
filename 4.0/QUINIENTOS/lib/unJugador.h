@@ -2,17 +2,20 @@
 #define unJugador_h
 #include <vector>
 
-void Titulo();
+void titulo();
 
 void gotoxy(int x, int y);
 
-void Esquinas();
+void esquinas();
 
-void ModoUnJugador();
+void modoUnJugador();
 
-void ModoDosJugadores();
+void modoDosJugadores();
 
 void Rectangulo1P();
 
+void combinacionesGanadoras();
+
+void comoSeJuega();
 
 #endif
