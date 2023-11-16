@@ -1,28 +1,28 @@
 #include "lib/dibujar.h"
-#include <random>
 #include "rlutil.h"
 #include <windows.h>
-#include <vector>
-#include <map>
 #include <string>
 
 using namespace std;
 
 // Genera 6 numeros aleatorios Utilizando las funcion srand, incluida en la bilioteca estandar de c++, (Iniciar la semilla srand(time(0)) para numeros aleatorios.)
-int SeisNumeros(int min, int max) {
+/*int SeisNumeros(int min, int max) {
 	return rand() % (max - min + 1) + min;
-}
+}*/ 
+//CREO QUE NO LO USO
 
 //Con esta funcion creamos un Vector de 6 Vacio, utilizando la funcion de SeisNumeros se  llena el vector con los numeros aleatorios(almacena los dados)
 /*Push_back hace que LanzarDados se Almacene en Resultados*/
-std::vector<int> LanzarDados() {
+/*std::vector<int> LanzarDados() {
 	std::vector<int> Resultados;
 	for (int i = 0; i < 6; i++) {
 		int numero = SeisNumeros(1, 6);
 		Resultados.push_back(numero);
 	}
 	return Resultados;
-}
+}*/
+//CREO QE NO LO USO
+
 
 //Genera Lineas, siendo x1 La linea principal del Eje X
 //x2 Siendo el punto final de la linea x1
@@ -136,9 +136,5 @@ void dibujarDado(int posx, int posy, int num, int tam) {
 
 //Genera 6 numeros aleatorios Utilizando las funciones de Random, devolviendo 6 numeros Totalmente aleatorios.
 int numAleatorio1_6() {
-	std::random_device rd;
-	std::mt19937 gen(rd());
-	std::uniform_int_distribution<> dis(1, 6);
-
-	return dis(gen);
+	return rand() % 6 + 1;
 }

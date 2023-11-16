@@ -1,12 +1,7 @@
 #ifndef dibujar_h
 #define dibujar_h
-#include <vector>
-
-int SeisNumeros(int min, int max);
 
 int numAleatorio1_6();
-
-std::vector<int> LanzarDados();
 
 void dibujarDado(int posx, int posy, int num, int tam);
 

@@ -1,9 +1,6 @@
 #include "lib/dados.h"
-#include <random>
 #include "rlutil.h"
 #include <windows.h>
-#include <vector>
-#include <map>
 #include <string>
 
 using namespace std;
@@ -80,18 +77,43 @@ bool esSextetoX(int dados[6])
 		return true;
 	}
 
-	bool esTodo3 = esSextetoX(dados, 3);
-	if (esTodo3) {
+	bool esTodoTres = true;
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] != 1) {
+			esTodoTres = false;
+		}
+	}
+	if (esTodoTres) {
+		return true;
+	}
+	
+	bool esTodoCuatro = true;
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] != 1) {
+			esTodoCuatro = false;
+		}
+	}
+	if (esTodoCuatro) {
 		return true;
 	}
 
-	bool esTodo4 = esSextetoX(dados, 4);
-	if (esTodo4) {
+	bool esTodoCinco = true;
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] != 1) {
+			esTodoCinco = false;
+		}
+	}
+	if (esTodoCinco) {
 		return true;
 	}
 
-	bool esTodo5 = esSextetoX(dados, 5);
-	if (esTodo5) {
+	bool esTodoSeis = true;
+	for (int i = 0; i < 6; ++i) {
+		if (dados[i] != 1) {
+			esTodoSeis = false;
+		}
+	}
+	if (esTodoSeis) {
 		return true;
 	}
 

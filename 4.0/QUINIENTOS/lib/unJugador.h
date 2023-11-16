@@ -1,6 +1,5 @@
 #ifndef unJugador_h
 #define unJugador_h
-#include <vector>
 
 void titulo();
 
