@@ -386,7 +386,7 @@ void modoDosJugadores()  {
 				esquinas();
 				rlutil::locate(50, 3);
 
-				// se crea un vector que representa el numero aleatorio asignado a cada dado (6 dados)
+				// Se crea un vector que representa el numero aleatorio asignado a cada dado (6 dados)
 				int dados[6];
 				for (int i = 0; i < 6; ++i) {
 					int numeroAleatorio = numAleatorio1_6();
