@@ -379,7 +379,7 @@ void modoDosJugadores()  {
 					rlutil::locate(40, 28);
 					rlutil::anykey();
 					break; 
-				}
+				} //esto no va
 
 				rlutil::cls();
 				Rectangulo1P();
