@@ -122,7 +122,7 @@ void modoUnJugador() {
 				cout << "PUNTUAJE TOTAL: " << puntajeTotalP1;
 				rlutil::locate(60, 5);
 				cout << "PUNTAJE DE LA RONDA: " << puntajeRondaP1 << " PUNTOS" << endl << endl;
-				rlutil::locate(60, 7);
+				rlutil::locate(60, 7 );
 				cout << "PUNTAJE DEL LANZAMIENTO: "<< puntaje << " PUNTOS" << endl << endl;
 
 				// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
@@ -133,7 +133,7 @@ void modoUnJugador() {
 					break; // el break sale del while
 				}
 
-
+				//esta bien eso>>???
 
 				// Mostrar los resultados parciales
 				rlutil::setColor(rlutil::COLOR::DARKGREY);
@@ -170,7 +170,7 @@ void modoUnJugador() {
 				rlutil::locate(48, 16);
 				cout << "PUNTUAJE FINAL: " << puntajeTotalP1; 
 				rlutil::setColor(rlutil::COLOR::WHITE);
-				rlutil::locate(40, 20);
+				rlutil::locate(37, 20);
 				cout << "Presione cualquier tecla para volver al menu principal";
 			}
 
@@ -192,7 +192,8 @@ void modoDosJugadores()  {
 	int puntajeRondaP1 = 0, puntajeRondaP2 = 0;
 	int lanzamientosP1 = 0, lanzamientosP2 = 0;
 	int NumRondaP1 = 0, NumRondaP2 = 0;
-
+	int cantRondas;
+	int contadorLanzamientosP1 = 0, contadorLanzamientosP2 = 0;
 
 	bool volverAlMenu = false;
 
@@ -235,19 +236,36 @@ void modoDosJugadores()  {
 		rlutil::locate(50, 14);
 		cin >> Nombre2P;
 
+		rlutil::cls();
+		rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
+		rlutil::locate(50, 10);
+		cout << "MODO DOS JUGADORES";
+		rlutil::locate(45, 4);
+		DibujarLineas(50, 9, 65, 9, (char)196);
+		DibujarLineas(50, 11, 65, 11, (char)196);
+		DibujarLineas(49, 9, 49, 9, (char)174);
+		DibujarLineas(65, 11, 65, 11, (char)175);
+		rlutil::setColor(rlutil::COLOR::WHITE);
+		rlutil::locate(43, 12);
+		cout << "Ingresar cantidad de rondas: ";
+		DibujarLineas(40, 9, 80, 9, (char)205);
+		DibujarLineas(40, 10, 40, 15, (char)186);
+		DibujarLineas(80, 10, 80, 15, (char)186);
+		DibujarLineas(40, 16, 80, 16, (char)205);
+		rlutil::locate(50, 14);
+		cin >> cantRondas;
+
 		rlutil::locate(59, 18);
 		cout << (char)175;
 		rlutil::locate(43, 20);
 		cout << "Presione cualquier letra para jugar";
 		rlutil::anykey();
 
-		
-
-		while (puntajeTotalP1 <= 500 && puntajeTotalP2 <= 500) {
+		while (NumRondaP1 < cantRondas) { //numronda se inicializa rn 1 despues del while
 			
 			lanzamientosP1 = 0, lanzamientosP2 = 0;
 			// Se reinicia puntaje ronda al comenzar una nueva
-			puntajeRondaP1 = 0, puntajeRondaP2 = 0; //tal vez da error
+			puntajeRondaP1 = 0, puntajeRondaP2 = 0; 
 
 			NumRondaP1++;
 
@@ -271,8 +289,9 @@ void modoDosJugadores()  {
 
 			rlutil::setColor(rlutil::COLOR::WHITE);
 
-			while (lanzamientosP1 < 3) {
+			while (lanzamientosP1 < 3 && puntajeTotalP1 < 500) {
 				lanzamientosP1++;
+				contadorLanzamientosP1++;
 
 				rlutil::cls();
 				Rectangulo1P();
@@ -317,7 +336,7 @@ void modoDosJugadores()  {
 				}
 
 				puntajeRondaP1 += puntaje;
-				// Actualizar el puntaje total del jugador
+				// Actualiza el puntaje total del jugador
 				puntajeTotalP1 += puntaje;
 
 				rlutil::locate(15, 3);
@@ -332,14 +351,6 @@ void modoDosJugadores()  {
 				cout << "PUNTAJE DE LA RONDA: " << puntajeRondaP1 << " PUNTOS" << endl << endl;
 				rlutil::locate(60, 7);
 				cout << "PUNTAJE DEL LANZAMIENTO: " << puntaje << " PUNTOS" << endl << endl;
-
-				// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
-				if (puntajeTotalP1 >= 500 || puntajeTotalP1 == 0) {
-					rlutil::locate(40, 28);
-					cout << "Presione cualquier tecla para volver al menu principal";
-					rlutil::anykey();
-					break; // el break sale del while
-				}
 
 				rlutil::setColor(rlutil::COLOR::DARKGREY);
 				rlutil::locate(40, 28);
@@ -374,12 +385,7 @@ void modoDosJugadores()  {
 			//aca va el while del player 2
 			while (lanzamientosP2 < 3) {
 				lanzamientosP2++;
-
-				if (puntajeTotalP1 >= 500 || puntajeTotalP1 == 0) {
-					rlutil::locate(40, 28);
-					rlutil::anykey();
-					break; 
-				} //esto no va
+				contadorLanzamientosP2++;
 
 				rlutil::cls();
 				Rectangulo1P();
@@ -440,20 +446,176 @@ void modoDosJugadores()  {
 				rlutil::locate(60, 7);
 				cout << "PUNTAJE DEL LANZAMIENTO: " << puntaje << " PUNTOS" << endl << endl;
 
-				// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
-				if (puntajeTotalP2 >= 500 || puntajeTotalP2 == 0) {
-					rlutil::locate(40, 28);
-					cout << "Presione cualquier tecla para volver al menu principal";
-					rlutil::anykey();
-					break; // el break sale del while
-				}
-
 				// Mostrar los resultados parciales
 				rlutil::setColor(rlutil::COLOR::DARKGREY);
 				rlutil::locate(40, 28);
 				cout << "Presione enter para tirar los dados";
 				rlutil::anykey();
 				rlutil::setColor(rlutil::COLOR::WHITE);
+			}
+
+
+			if (puntajeTotalP1 >= 500 && puntajeTotalP2 >= 500) {  //en caso de empate
+				//se desempata con el que tuvo el mayor puntaje en la menor cantidad de lanzamientos 
+				if (contadorLanzamientosP1 > contadorLanzamientosP2) {
+					rlutil::cls();
+					rlutil::locate(48, 10);
+					rlutil::setColor(rlutil::COLOR::GREY);
+					rlutil::setBackgroundColor(rlutil::RED);
+					cout << "GANASTE LA PARTIDA " << Nombre2P << endl; //pantalla ganador player2
+					rlutil::locate(48, 12);
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::setBackgroundColor(rlutil::BLACK);
+					cout << "SE TERMINO LA RONDA N" << NumRondaP2 << endl;
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::locate(48, 14);
+					cout << "PUNTUAJE FINAL: " << puntajeTotalP2;
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::locate(37, 20);
+					cout << "Presione cualquier tecla para volver al menu principal";
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::anykey();
+				}
+				else {
+					rlutil::cls();
+					rlutil::locate(48, 10);
+					rlutil::setColor(rlutil::COLOR::GREY);
+					rlutil::setBackgroundColor(rlutil::RED);
+					cout << "GANASTE LA PARTIDA " << Nombre1P << endl; //pantalla ganador player1
+					rlutil::locate(48, 12);
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::setBackgroundColor(rlutil::BLACK);
+					cout << "SE TERMINO LA RONDA N" << NumRondaP1 << endl;
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::locate(48, 14);
+					cout << "PUNTUAJE FINAL: " << puntajeTotalP1;
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::locate(37, 20);
+					cout << "Presione cualquier tecla para volver al menu principal";
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::anykey();
+				}
+			}
+
+			
+			/*
+			// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
+			if (puntajeTotalP1 >= 500 || puntajeTotalP1 == 0) {
+				rlutil::locate(40, 28);
+				cout << "Presione cualquier tecla para volver al menu principal";
+				rlutil::anykey();
+				break; // el break sale del while
+			} */
+
+			// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
+			if (puntajeTotalP1 >= 500 && contadorLanzamientosP2 <= contadorLanzamientosP1) { //|| puntajeTotalP2 == 0) {
+				rlutil::cls();
+				rlutil::locate(48, 10);
+				rlutil::setColor(rlutil::COLOR::GREY);
+				rlutil::setBackgroundColor(rlutil::RED);
+				cout << "GANASTE LA PARTIDA " << Nombre1P << endl; //pantalla ganador player2
+				rlutil::locate(48, 12);
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::setBackgroundColor(rlutil::BLACK);
+				cout << "SE TERMINO LA RONDA N" << NumRondaP1 << endl;
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::locate(48, 14);
+				cout << "PUNTUAJE FINAL: " << puntajeTotalP1;
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::locate(37, 20);
+				cout << "Presione cualquier tecla para volver al menu principal";
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::anykey();
+				//break; // el break sale del while 
+			}
+
+			// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
+			if (puntajeTotalP2 >= 500 && contadorLanzamientosP2 <= contadorLanzamientosP1) { //|| puntajeTotalP2 == 0) {
+				rlutil::cls();
+				rlutil::locate(48, 10);
+				rlutil::setColor(rlutil::COLOR::GREY);
+				rlutil::setBackgroundColor(rlutil::RED);
+				cout << "GANASTE LA PARTIDA " << Nombre2P << endl; //pantalla ganador player2
+				rlutil::locate(48, 12);
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::setBackgroundColor(rlutil::BLACK);
+				cout << "SE TERMINO LA RONDA N" << NumRondaP2 << endl;
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::locate(48, 14);
+				cout << "PUNTUAJE FINAL: " << puntajeTotalP2;
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::locate(37, 20);
+				cout << "Presione cualquier tecla para volver al menu principal";
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::anykey();
+				//break; // el break sale del while 
+			 } 
+
+			 /*if (puntajeTotalP2 == 0) {
+				rlutil::cls();
+				rlutil::locate(48, 10);
+				rlutil::setColor(rlutil::COLOR::GREY);
+				rlutil::setBackgroundColor(rlutil::RED);
+				cout << "PERDISTE LA PARTIDA " << Nombre2P << endl; //pantalla ganador player1 por defecto
+				rlutil::locate(48, 12);
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::setBackgroundColor(rlutil::BLACK);
+				cout << "SE TERMINO LA RONDA N" << NumRondaP2 << endl;
+				rlutil::setColor(rlutil::COLOR::LIGHTRED);
+				rlutil::locate(48, 14);
+				cout << "PUNTUAJE FINAL: " << puntajeTotalP2;
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::locate(37, 20);
+				cout << "Presione cualquier tecla para volver al menu principal";
+				rlutil::setColor(rlutil::COLOR::WHITE);
+				rlutil::anykey();
+				break; // el break sale del while 
+			 }
+			 */
+			
+
+			if (cantRondas <= NumRondaP1 && puntajeTotalP1 < 500 && puntajeTotalP2 < 500) {  //la partida termina sin ninguno mayor a 500 puntos
+				if (puntajeTotalP1 > puntajeTotalP2) {
+					//MOSTRAR PANTALLA GANADOR PLAYER 1
+					rlutil::cls();
+					rlutil::locate(48, 10);
+					rlutil::setColor(rlutil::COLOR::GREY);
+					rlutil::setBackgroundColor(rlutil::RED);
+					cout << "GANASTE LA PARTIDA " << Nombre1P << endl; //pantalla ganador player1
+					rlutil::locate(48, 12);
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::setBackgroundColor(rlutil::BLACK);
+					cout << "SE TERMINO LA RONDA N" << NumRondaP1 << endl;
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::locate(48, 14);
+					cout << "PUNTUAJE FINAL: " << puntajeTotalP1;
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::locate(37, 20);
+					cout << "Presione cualquier tecla para volver al menu principal";
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::anykey();
+				}
+				else {
+					//mostrar pantalla ganador player 2
+					rlutil::cls();
+					rlutil::locate(48, 10);
+					rlutil::setColor(rlutil::COLOR::GREY);
+					rlutil::setBackgroundColor(rlutil::RED);
+					cout << "GANASTE LA PARTIDA " << Nombre2P << endl; //pantalla ganador player2
+					rlutil::locate(48, 12);
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::setBackgroundColor(rlutil::BLACK);
+					cout << "SE TERMINO LA RONDA N" << NumRondaP2 << endl;
+					rlutil::setColor(rlutil::COLOR::LIGHTRED);
+					rlutil::locate(48, 14);
+					cout << "PUNTUAJE FINAL: " << puntajeTotalP2;
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::locate(37, 20);
+					cout << "Presione cualquier tecla para volver al menu principal";
+					rlutil::setColor(rlutil::COLOR::WHITE);
+					rlutil::anykey();
+				}
+
 			}
 
 			rlutil::anykey();
