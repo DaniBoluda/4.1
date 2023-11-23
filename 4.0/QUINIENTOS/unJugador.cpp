@@ -122,8 +122,8 @@ void modoUnJugador() {
 				cout << "PUNTUAJE TOTAL: " << puntajeTotalP1;
 				rlutil::locate(60, 5);
 				cout << "PUNTAJE DE LA RONDA: " << puntajeRondaP1 << " PUNTOS" << endl << endl;
-				rlutil::locate(60, 7 );
-				cout << "PUNTAJE DEL LANZAMIENTO: "<< puntaje << " PUNTOS" << endl << endl;
+				rlutil::locate(60, 7);
+				cout << "PUNTAJE DEL LANZAMIENTO: " << puntaje << " PUNTOS" << endl << endl;
 
 				// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
 				if (puntajeTotalP1 >= 500 || puntajeTotalP1 == 0) {
