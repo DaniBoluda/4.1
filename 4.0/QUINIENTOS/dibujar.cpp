@@ -1,7 +1,5 @@
 #include "lib/dibujar.h"
 #include "rlutil.h"
-#include <windows.h>
-#include <string>
 
 using namespace std;
 

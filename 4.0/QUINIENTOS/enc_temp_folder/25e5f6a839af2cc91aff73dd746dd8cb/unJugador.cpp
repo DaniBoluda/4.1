@@ -450,6 +450,50 @@ void modoDosJugadores() {
 				}
 			}
 
+			//// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
+			//if (puntajeTotalP1 >= 500 && contadorLanzamientosP2 <= contadorLanzamientosP1) {
+			//	rlutil::cls();
+			//	rlutil::locate(48, 10);
+			//	rlutil::setColor(rlutil::COLOR::GREY);
+			//	rlutil::setBackgroundColor(rlutil::RED);
+			//	cout << "GANASTE LA PARTIDA " << Nombre1P << endl; //pantalla ganador player2
+			//	rlutil::locate(48, 12);
+			//	rlutil::setColor(rlutil::COLOR::LIGHTRED);
+			//	rlutil::setBackgroundColor(rlutil::BLACK);
+			//	cout << "SE TERMINO LA RONDA N" << NumRondaP1 << endl;
+			//	rlutil::setColor(rlutil::COLOR::LIGHTRED);
+			//	rlutil::locate(48, 14);
+			//	cout << "PUNTUAJE FINAL: " << puntajeTotalP1;
+			//	rlutil::setColor(rlutil::COLOR::WHITE);
+			//	rlutil::locate(37, 20);
+			//	cout << "Presione cualquier tecla para volver al menu principal";
+			//	rlutil::setColor(rlutil::COLOR::WHITE);
+			//	rlutil::anykey();
+			//	//break; // el break sale del while 
+			//}
+
+			//// Verificar si se obtuvo escalera o sexteto 6 para terminar la ronda
+			//if (puntajeTotalP2 >= 500 && contadorLanzamientosP2 <= contadorLanzamientosP1) { 
+			//	rlutil::cls();
+			//	rlutil::locate(48, 10);
+			//	rlutil::setColor(rlutil::COLOR::GREY);
+			//	rlutil::setBackgroundColor(rlutil::RED);
+			//	cout << "GANASTE LA PARTIDA " << Nombre2P << endl; //pantalla ganador player2
+			//	rlutil::locate(48, 12);
+			//	rlutil::setColor(rlutil::COLOR::LIGHTRED);
+			//	rlutil::setBackgroundColor(rlutil::BLACK);
+			//	cout << "SE TERMINO LA RONDA N" << NumRondaP2 << endl;
+			//	rlutil::setColor(rlutil::COLOR::LIGHTRED);
+			//	rlutil::locate(48, 14);
+			//	cout << "PUNTUAJE FINAL: " << puntajeTotalP2;
+			//	rlutil::setColor(rlutil::COLOR::WHITE);
+			//	rlutil::locate(37, 20);
+			//	cout << "Presione cualquier tecla para volver al menu principal";
+			//	rlutil::setColor(rlutil::COLOR::WHITE);
+			//	rlutil::anykey();
+			//	//break; // el break sale del while 
+			//}
+
 			if (cantRondas <= NumRondaP1 && puntajeTotalP1 < 500 && puntajeTotalP2 < 500) {  //la partida termina sin ninguno mayor a 500 puntos
 				if (puntajeTotalP1 > puntajeTotalP2) {
 					rlutil::cls();
