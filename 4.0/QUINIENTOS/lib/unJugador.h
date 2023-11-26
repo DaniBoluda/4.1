@@ -14,6 +14,8 @@ void modoUnJugador();
 
 void modoDosJugadores();
 
+void nombreMasAlta(); // borrar si no anda
+
 void ActualizarEncabezado(string nombre, int numRonda, int numLanzamiento, int puntajeTotal, int puntajeRonda, int puntajeLanzamiento);
 
 int ObtenerPuntaje(int dados[6]);

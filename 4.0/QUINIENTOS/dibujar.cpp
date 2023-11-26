@@ -8,6 +8,7 @@ using namespace std;
 //y1 Seria La linea del eje Y
 //y2 Siendo el punto final de la linea y2
 //DIbujando el caracter seleccionado 
+
 void DibujarLineas(int x1, int y1, int x2, int y2, char symbol) {
 	for (int x = x1; x <= x2; x++) {
 		for (int y = y1; y <= y2; y++) {

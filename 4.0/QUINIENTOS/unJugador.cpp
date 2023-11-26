@@ -6,6 +6,8 @@
 
 using namespace std;
 
+
+
 void Rectangulo1P() {
 	// Dibujar pared izquierda
 	DibujarLineas(1, 1, 1, 9, (char)186);
@@ -58,7 +60,6 @@ void modoUnJugador() {
 		while (puntajeTotalP1 <= 500) {
 			NumRondaP1++;
 			lanzamientosP1 = 0;
-			// Se reinicia puntaje ronda al comenzar una nueva
 			puntajeRondaP1 = 0;
 
 			while (lanzamientosP1 < 3) {
@@ -101,7 +102,6 @@ void modoUnJugador() {
 				}
 			}
 
-
 			rlutil::cls();
 			rlutil::locate(48, 10);
 			rlutil::setColor(rlutil::COLOR::GREY);
@@ -119,12 +119,11 @@ void modoUnJugador() {
 			rlutil::locate(48, 14);
 			cout << "PUNTAJE DE LA RONDA: " << puntajeRondaP1 << " PUNTOS" << endl;
 
-			if (puntajeTotalP1 < 500 /* && puntajeTotalP1 != 0*/) {
+			if (puntajeTotalP1 < 500) {
 				rlutil::locate(48, 17);
-				cout << "SIGUIENTE RONDA N" << NumRondaP1 + 1; //cambiaar
+				cout << "SIGUIENTE RONDA N" << NumRondaP1 + 1; 
 			}
 			else {
-				//cls y mostrar otra pantalla de final de jugada
 				rlutil::setColor(rlutil::COLOR::LIGHTRED);
 				rlutil::locate(48, 16);
 				cout << "PUNTUAJE FINAL: " << puntajeTotalP1;
@@ -145,11 +144,10 @@ void modoUnJugador() {
 
 }
 
-//Modo Dos Jugadores
-//pasarlo a otra libreria de dos jugadores
 void modoDosJugadores() {
 	string Nombre1P;
 	string Nombre2P;
+	string ganador;
 	int puntajeTotalP1 = 0, puntajeTotalP2 = 0;
 	int puntajeRondaP1 = 0, puntajeRondaP2 = 0;
 	int lanzamientosP1 = 0, lanzamientosP2 = 0;
@@ -159,7 +157,7 @@ void modoDosJugadores() {
 
 	bool volverAlMenu = false;
 	bool hayEscalera = false;
-
+	
 	while (!volverAlMenu) {
 		rlutil::cls();
 		rlutil::setColor(rlutil::COLOR::LIGHTCYAN);
@@ -335,10 +333,8 @@ void modoDosJugadores() {
 			rlutil::setBackgroundColor(rlutil::BLACK);
 			cout << "PROXIMO TURNO DE: " << Nombre2P << endl;
 			rlutil::locate(48, 17);
-			//rlutil::setColor(rlutil::COLOR::LIGHTRED);
 			cout << "PUNTAJE DE " << Nombre1P << ": " << puntajeTotalP1 << " PUNTOS" << endl;
 			rlutil::locate(48, 19);
-			//rlutil::setColor(rlutil::COLOR::LIGHTRED);
 			cout << "PUNTAJE DE " << Nombre2P << ": " << puntajeTotalP2 << " PUNTOS" << endl;
 			rlutil::anykey();
 
@@ -492,13 +488,38 @@ void modoDosJugadores() {
 
 			}
 
-			rlutil::anykey();
+			//bborrar si no funciona
+			if (NumRondaP1 < NumRondaP2 && puntajeTotalP1 > puntajeTotalP2) {
+				Nombre1P;
+			}
+			else if (NumRondaP2 < NumRondaP1 && puntajeTotalP2 > puntajeRondaP1) {
+				Nombre2P;
+			}
+			
+			if (NumRondaP1 == NumRondaP2) {
+				if (contadorLanzamientosP1 < contadorLanzamientosP2 && puntajeTotalP1 > puntajeTotalP2) {
+					Nombre1P;
+				}
+				else if (contadorLanzamientosP2 < contadorLanzamientosP1 && puntajeTotalP2 > puntajeTotalP1) {
+					Nombre2P;
+				}
+			}
+			//bborrar si no funciona
+
+
+
+
+			rlutil::anykey(); // no borrar 
 		}
 		return;
 
 	}
 }
 
+void nombreMasAlta() {
+	//Esta opción debe mostrar el nombre del jugador que haya finalizado el juego en la menor cantidad de rondas.
+	// En caso de empatar la cantidad de rondas, se debe analizar la menor cantidad de lanzamientos.
+}
 
 void esquinas() {
 	//Esquina superior izquierda
@@ -566,25 +587,6 @@ void titulo() {
 
 	//Dibujar Linea superior (Opciones)
 	DibujarLineas(47, 40, 30, 60, (char)186);
-
-	//Dibujar Linea superior (Opciones)
-//Mofidica estas 4 para hacer la decoracion de las opciones, (1,2,3,4,(char)...); Siendo 1 el inicio de la linea del Eje X (------)
-//3 es el final de la linea, por ejemplo 10 15, seria una linea q empieza en la fila 10 y termine en la 15, una linea de 2
-//2 es el inicio en el eje Y y 4 el fin por ejemplo una linea que empiece en la fila 3 y termine en la 10
-/*
-*-------|
-*
-*
-*
-* |
-* |
-* |
-* |
-* |
-* |
-* |
-* ***********
-*/
 }
 
 void combinacionesGanadoras() {

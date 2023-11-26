@@ -6,16 +6,10 @@
 
 using namespace std;
 
+//fila 0=nombre, fila 1 = ronda, fila 2 = lanzamientos (esto es una variable global)
+//int jugadorMasAlto[3];
+
 int main() {
-	//int dados[6] = { 1, 1, 2, 1, 1, 1 };
-	//bool combinacion = esSextetoX(dados);
-	//int puntaje = puntajeTrio(dados);
-	//cout << "PUNTAJE" << endl;
-	//cout << puntaje << endl;
-
-	//return 0;
-
-	//parte del juego:
 	bool salirDelJuego = false;
 	int opcion = 1;
 
@@ -76,7 +70,6 @@ int main() {
 				opcion--;
 			}
 			break;
-			// Presionar Enter
 		case rlutil::KEY_ENTER:
 			switch (opcion) {
 			case 1: 
@@ -85,10 +78,9 @@ int main() {
 			case 2:
 				modoDosJugadores();
 				break;
-				// MOSTRAR CALIFICACION MAXIMA de los dos jugadores 
 			case 3:
+				nombreMasAlta();
 				rlutil::anykey();
-
 				break;
 			case 4:
 				comoSeJuega();
